@@ -20,9 +20,22 @@ namespace WPF_cwiczenie
     /// </summary>
     public partial class MainWindow : Window
     {
+        WPF_BazaDanychEntities db = new WPF_BazaDanychEntities();  // połączenie z bazą danych
+        public void fillComboBox() // funkcja wypełniająca ComboBox danymi z bazy
+        {
+            var roslinka = db.Roslina;
+
+            foreach (var encja in roslinka)
+            {
+                roslinkiComboBox.Items.Add(encja.nazwa_polska);
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
+            fillComboBox();
         }
+
+
     }
 }
