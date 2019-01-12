@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:WPF_cwiczenie"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Border Padding="10">
+        <StackPanel>
+            <ComboBox x:Name="roslinkiComboBox">
+            </ComboBox>
+        </StackPanel>
+    </Border>
 </Window>
