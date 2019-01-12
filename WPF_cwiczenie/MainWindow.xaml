@@ -39,6 +39,7 @@
             </Grid>
 
             <TextBox Name="infoRoslina"></TextBox>
+            <Button x:Name="ZapisDoPliku" Click="ZapisDoPliku_Click">Zapisz do pliku</Button>
         </StackPanel>
     </Border>
 </Window>

@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+using System.IO;
+using Microsoft.Win32;
+
 namespace WPF_cwiczenie
 {
     /// <summary>
@@ -43,6 +47,14 @@ namespace WPF_cwiczenie
             var encja = zbior.Where(en => en.nazwa_polska == nazwaWybranegoPrzycisku);
             var znaleziony = encja.FirstOrDefault<Roslina>();
             infoRoslina.Text = "Nazwa polska: " + znaleziony.nazwa_polska + "\n" + "Nazwa łacińska: " + znaleziony.nazwa_lacinska + "\n" + "Rodzina: " + znaleziony.rodzina;
+        }
+
+        private void ZapisDoPliku_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog zapisDoPlikuDialog = new SaveFileDialog();
+            zapisDoPlikuDialog.Filter = "Plik tekstowy (*.txt)|*.txt";
+            if (zapisDoPlikuDialog.ShowDialog() == true)
+                File.WriteAllText(zapisDoPlikuDialog.FileName, infoRoslina.Text);
         }
     }
 }
