@@ -5,11 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_cwiczenie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Roślinki" Height="600" Width="800">
     <Border Padding="10">
         <StackPanel>
-            <ComboBox x:Name="roslinkiComboBox">
-            </ComboBox>
+            <TextBlock>Wybierz roślinę z listy</TextBlock>
+            <ComboBox x:Name="roslinkiComboBox"></ComboBox>
+            <Grid MaxHeight="500" MaxWidth="500">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button x:Name="Echinokaktus" Grid.Column="0" Click="Button_Click">
+                    <Image Source="images/echino.jpg"></Image>
+                </Button>
+                <Button x:Name="Aloes" Grid.Column="1" Click="Button_Click">
+                    <Image Source="images/aloe.jpg"></Image>
+                </Button>
+                <Button x:Name="Opuncja" Grid.Column="2" Click="Button_Click">
+                    <Image Source="images/opuntia.jpg"></Image>
+                </Button>
+                <Button x:Name="Haworsja" Grid.Row="1" Grid.Column="0" Click="Button_Click">
+                    <Image Source="images/haworthia.jpg"></Image>
+                </Button>
+                <Button x:Name="Sansewieria" Grid.Row="1" Grid.Column="1" Click="Button_Click">
+                    <Image Source="images/sansevieria.jpg"></Image>
+                </Button>
+            </Grid>
+
+            <TextBox Name="infoRoslina"></TextBox>
         </StackPanel>
     </Border>
 </Window>

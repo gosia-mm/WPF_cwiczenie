@@ -36,6 +36,13 @@ namespace WPF_cwiczenie
             fillComboBox();
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var nazwaWybranegoPrzycisku = (sender as Button).Name;
+            var zbior = db.Roslina;
+            var encja = zbior.Where(en => en.nazwa_polska == nazwaWybranegoPrzycisku);
+            var znaleziony = encja.FirstOrDefault<Roslina>();
+            infoRoslina.Text = "Nazwa polska: " + znaleziony.nazwa_polska + "\n" + "Nazwa łacińska: " + znaleziony.nazwa_lacinska + "\n" + "Rodzina: " + znaleziony.rodzina;
+        }
     }
 }
