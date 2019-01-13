@@ -25,7 +25,8 @@ namespace WPF_cwiczenie
     public partial class MainWindow : Window
     {
         WPF_BazaDanychEntities db = new WPF_BazaDanychEntities();  // połączenie z bazą danych
-        public void wypelnijComboBox() // funkcja wypełniająca ComboBox danymi z bazy
+
+        public void WypelnijComboBox() // funkcja wypełniająca ComboBox danymi z bazy
         {
             var roslinka = db.Roslina;
 
@@ -37,11 +38,12 @@ namespace WPF_cwiczenie
         public MainWindow()
         {
             InitializeComponent();
-            wypelnijComboBox();
+            WypelnijComboBox();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DodanieDoKoszyka.Visibility = Visibility.Visible; // odkrycie przycisku DodanieDoKoszyka
             var nazwaWybranegoPrzycisku = (sender as Button).Name;
             var zbior = db.Roslina;
             var encja = zbior.Where(en => en.nazwa_polska == nazwaWybranegoPrzycisku);
@@ -55,6 +57,17 @@ namespace WPF_cwiczenie
             zapisDoPlikuDialog.Filter = "Plik tekstowy (*.txt)|*.txt";
             if (zapisDoPlikuDialog.ShowDialog() == true)
                 File.WriteAllText(zapisDoPlikuDialog.FileName, infoRoslina.Text);
+        }
+
+        private void OtwarcieKoszyka_Click(object sender, RoutedEventArgs e)
+        {
+            Koszyk koszyk = new Koszyk();
+            koszyk.Show();
+        }
+
+        private void DodanieDoKoszyka_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

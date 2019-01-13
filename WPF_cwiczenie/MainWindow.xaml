@@ -10,46 +10,56 @@
         <StackPanel>
             <TextBlock>Wybierz roślinę z listy</TextBlock>
             <ComboBox x:Name="roslinkiComboBox"></ComboBox>
-            <Grid MaxHeight="500" MaxWidth="500">
+            <Border BorderThickness="10">
+                <Grid MaxHeight="500" MaxWidth="500">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Echinokaktus" Margin="10" Grid.Column="0" Click="Button_Click" Cursor="Hand" ToolTip="Echinokaktus">
+                        <Image Source="images/echino.jpg"></Image>
+                    </Button>
+                    <Button x:Name="Aloes" Margin="10" Grid.Column="1" Click="Button_Click" Cursor="Hand" ToolTip="Aloes">
+                        <Image Source="images/aloe.jpg"></Image>
+                    </Button>
+                    <Button x:Name="Opuncja" Margin="10" Grid.Column="2" Click="Button_Click" Cursor="Hand" ToolTip="Opuncja">
+                        <Image Source="images/opuntia.jpg"></Image>
+                    </Button>
+                    <Button x:Name="Eszeweria" Margin="10" Grid.Column="3" Click="Button_Click" Cursor="Hand" ToolTip="Eszeweria">
+                        <Image Source="images/echeveria.jpg"></Image>
+                    </Button>
+                    <Button x:Name="Haworsja" Margin="10" Grid.Row="1" Grid.Column="0" Click="Button_Click" Cursor="Hand" ToolTip="Haworsja">
+                        <Image Source="images/haworthia.jpg"></Image>
+                    </Button>
+                    <Button x:Name="Sansewieria" Margin="10" Grid.Row="1" Grid.Column="1" Click="Button_Click" Cursor="Hand" ToolTip="Sansewieria">
+                        <Image Source="images/sansevieria.jpg"></Image>
+                    </Button>
+                    <Button x:Name="Melokaktus" Margin="10" Grid.Row="1" Grid.Column="2" Click="Button_Click" Cursor="Hand" ToolTip="Melokaktus">
+                        <Image Source="images/melocactus.jpg"></Image>
+                    </Button>
+                    <Button x:Name="Agawa" Margin="10" Grid.Row="1" Grid.Column="3" Click="Button_Click" Cursor="Hand" ToolTip="Agawa">
+                        <Image Source="images/agave.jpg"></Image>
+                    </Button>
+                </Grid>
+            </Border>
+            <TextBox Name="infoRoslina"></TextBox>
+            <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Button x:Name="Echinokaktus" Grid.Column="0" Click="Button_Click">
-                    <Image Source="images/echino.jpg"></Image>
-                </Button>
-                <Button x:Name="Aloes" Grid.Column="1" Click="Button_Click">
-                    <Image Source="images/aloe.jpg"></Image>
-                </Button>
-                <Button x:Name="Opuncja" Grid.Column="2" Click="Button_Click">
-                    <Image Source="images/opuntia.jpg"></Image>
-                </Button>
-                <Button x:Name="Eszeweria" Grid.Column="3" Click="Button_Click">
-                    <Image Source="images/echeveria.jpg"></Image>
-                </Button>
-                <Button x:Name="Haworsja" Grid.Row="1" Grid.Column="0" Click="Button_Click">
-                    <Image Source="images/haworthia.jpg"></Image>
-                </Button>
-                <Button x:Name="Sansewieria" Grid.Row="1" Grid.Column="1" Click="Button_Click">
-                    <Image Source="images/sansevieria.jpg"></Image>
-                </Button>
-                <Button x:Name="Melokaktus" Grid.Row="1" Grid.Column="2" Click="Button_Click">
-                    <Image Source="images/melocactus.jpg"></Image>
-                </Button>
-                <Button x:Name="Agawa" Grid.Row="1" Grid.Column="3" Click="Button_Click">
-                    <Image Source="images/agave.jpg"></Image>
-                </Button>
+                <Button x:Name="DodanieDoKoszyka" Grid.Column="0" Click="DodanieDoKoszyka_Click" Visibility="Hidden">Dodaj do koszyka</Button>
+                <Button x:Name="ZapisDoPliku" Grid.Column="1" Click="ZapisDoPliku_Click">Zapisz do pliku</Button>
+                <Button x:Name="OtwarcieKoszyka" Grid.Column="2" Click="OtwarcieKoszyka_Click">Otwórz koszyk</Button>
             </Grid>
-
-            <TextBox Name="infoRoslina"></TextBox>
-            <Button x:Name="ZapisDoPliku" Click="ZapisDoPliku_Click">Zapisz do pliku</Button>
         </StackPanel>
     </Border>
 </Window>
