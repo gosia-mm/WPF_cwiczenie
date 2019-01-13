@@ -135,6 +135,9 @@
     <Resource Include="images\haworthia.jpg" />
     <Resource Include="images\opuntia.jpg" />
     <Resource Include="images\sansevieria.jpg" />
+    <Resource Include="images\echeveria.jpg" />
+    <Resource Include="images\agave.jpg" />
+    <Resource Include="images\melocactus.jpg" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>

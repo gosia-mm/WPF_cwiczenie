@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_cwiczenie"
         mc:Ignorable="d"
-        Title="Roślinki" Height="600" Width="800">
+        Title="Roślinki" Height="500" Width="800">
     <Border Padding="10">
         <StackPanel>
             <TextBlock>Wybierz roślinę z listy</TextBlock>
             <ComboBox x:Name="roslinkiComboBox"></ComboBox>
             <Grid MaxHeight="500" MaxWidth="500">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -30,11 +31,20 @@
                 <Button x:Name="Opuncja" Grid.Column="2" Click="Button_Click">
                     <Image Source="images/opuntia.jpg"></Image>
                 </Button>
+                <Button x:Name="Eszeweria" Grid.Column="3" Click="Button_Click">
+                    <Image Source="images/echeveria.jpg"></Image>
+                </Button>
                 <Button x:Name="Haworsja" Grid.Row="1" Grid.Column="0" Click="Button_Click">
                     <Image Source="images/haworthia.jpg"></Image>
                 </Button>
                 <Button x:Name="Sansewieria" Grid.Row="1" Grid.Column="1" Click="Button_Click">
                     <Image Source="images/sansevieria.jpg"></Image>
+                </Button>
+                <Button x:Name="Melokaktus" Grid.Row="1" Grid.Column="2" Click="Button_Click">
+                    <Image Source="images/melocactus.jpg"></Image>
+                </Button>
+                <Button x:Name="Agawa" Grid.Row="1" Grid.Column="3" Click="Button_Click">
+                    <Image Source="images/agave.jpg"></Image>
                 </Button>
             </Grid>
 
