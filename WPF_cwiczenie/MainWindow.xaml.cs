@@ -22,18 +22,20 @@ namespace WPF_cwiczenie
     /// <summary>
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
         WPF_BazaDanychEntities db = new WPF_BazaDanychEntities();  // połączenie z bazą danych
+        List<String> zawartoscKoszyka = new List<String>(); 
 
         public void WypelnijComboBox() // funkcja wypełniająca ComboBox danymi z bazy
         {
-            var roslinka = db.Roslina;
+            var zbior = db.Roslina;
 
-            foreach (var encja in roslinka)
+            foreach (var encja in zbior)
             {
-                roslinkiComboBox.Items.Add(encja.nazwa_polska);
-            }
+                RoslinkiComboBox.Items.Add(encja.nazwa_polska);
+            }            
         }
         public MainWindow()
         {
@@ -48,7 +50,8 @@ namespace WPF_cwiczenie
             var zbior = db.Roslina;
             var encja = zbior.Where(en => en.nazwa_polska == nazwaWybranegoPrzycisku);
             var znaleziony = encja.FirstOrDefault<Roslina>();
-            infoRoslina.Text = "Nazwa polska: " + znaleziony.nazwa_polska + "\n" + "Nazwa łacińska: " + znaleziony.nazwa_lacinska + "\n" + "Rodzina: " + znaleziony.rodzina;
+            NazwaRosliny.Text = znaleziony.nazwa_polska;
+            InfoRoslina.Text = "Nazwa polska: " + znaleziony.nazwa_polska + "\n" + "Nazwa łacińska: " + znaleziony.nazwa_lacinska + "\n" + "Rodzina: " + znaleziony.rodzina;
         }
 
         private void ZapisDoPliku_Click(object sender, RoutedEventArgs e)
@@ -56,18 +59,28 @@ namespace WPF_cwiczenie
             SaveFileDialog zapisDoPlikuDialog = new SaveFileDialog();
             zapisDoPlikuDialog.Filter = "Plik tekstowy (*.txt)|*.txt";
             if (zapisDoPlikuDialog.ShowDialog() == true)
-                File.WriteAllText(zapisDoPlikuDialog.FileName, infoRoslina.Text);
+                File.WriteAllText(zapisDoPlikuDialog.FileName, InfoRoslina.Text);
         }
 
         private void OtwarcieKoszyka_Click(object sender, RoutedEventArgs e)
         {
-            Koszyk koszyk = new Koszyk();
+            Koszyk koszyk = new Koszyk(zawartoscKoszyka);
             koszyk.Show();
         }
 
         private void DodanieDoKoszyka_Click(object sender, RoutedEventArgs e)
         {
-           
+            zawartoscKoszyka.Add(NazwaRosliny.Text);
+        }
+
+        private void RoslinkiComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var wybrany = (string)RoslinkiComboBox.SelectedValue;
+            var zbior = db.Roslina;
+            var encja = zbior.Where(en => en.nazwa_polska == wybrany);
+            var znaleziony = encja.FirstOrDefault<Roslina>();
+            InfoRoslinaLista.Text = "Nazwa polska: " + znaleziony.nazwa_polska + "\n" + "Nazwa łacińska: " + znaleziony.nazwa_lacinska + "\n" + "Rodzina: " + znaleziony.rodzina;
+
         }
     }
 }

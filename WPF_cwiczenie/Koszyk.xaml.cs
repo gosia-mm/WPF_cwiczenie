@@ -19,9 +19,20 @@ namespace WPF_cwiczenie
     /// </summary>
     public partial class Koszyk : Window
     {
-        public Koszyk()
+        public Koszyk(List<String> zawartosc)
         {
             InitializeComponent();
+
+            if (!zawartosc.Equals(null))
+            {
+                foreach (var elem in zawartosc)
+                {
+                    ElementyKoszyka.Text += elem + " ";
+                }
+            }
+                
+            else
+                ElementyKoszyka.Text = "Koszyk jest pusty";
         }
     }
 }
